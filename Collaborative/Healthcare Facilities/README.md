@@ -1,1 +1,0 @@
-Insert definition of category.
