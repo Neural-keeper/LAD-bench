@@ -95,19 +95,22 @@
                     <span style="display:inline-block; background:#f0f0f0; color:#555; font-size:0.85rem; font-weight:600; padding:0.25em 0.9em; border-radius:20px; letter-spacing:0.04em;">IROS 2026</span>
                 </p>
                 <h1 class="title is-2 publication-title">
-                    Post Fusion Bird's Eye View Feature Stabilization for Robust Multimodal 3D Detection
+                    LADBench: A Benchmark for Logical Anomaly Detection in Images
                 </h1>
 
                 <!-- Authors -->
                 <div class="is-size-5 publication-authors" style="margin-top: 1rem;">
                     <span class="author-block">
-                    <a href="https://dongtrung28.github.io/">Trung Tien Dong</a><sup>1</sup>,
+                    <a href="https://neural-keeper.github.io/">Sahasra Kondapalli</a><sup>1</sup>,
                     </span>
                     <span class="author-block">
-                    Dev Thakkar<sup>2</sup>,
+                    <a href="https://www.linkedin.com/in/lara-radovanovic/">Lara Radovanovic</a><sup>1</sup>,
                     </span>
                     <span class="author-block">
-                    <a href="https://scholar.google.com/citations?user=bwI_W-QAAAAJ&amp;hl=en">Arman Sargolzaei</a><sup>2</sup>,
+                    <a href="https://scholar.google.com/citations?user=bT1lIOkAAAAJ&hl=en">Aadi Palnitkar</a><sup>2</sup>,
+                    </span>
+                    <span class="author-block">
+                    <a href="https://www.linkedin.com/in/mingyang-mao-061b28197/">Mingyang Mao</a><sup>1</sup>,
                     </span>
                     <span class="author-block">
                     <a href="https://xiaominlin.github.io/">Xiaomin Lin</a><sup>1</sup>
@@ -116,8 +119,8 @@
 
                 <!-- Affiliations -->
                 <div class="is-size-6 publication-authors" style="margin-top: 0.5rem; color: #555;">
-                    <span class="author-block"><sup>1</sup>Electrical &amp; Computer Engineering, University of South Florida &nbsp;&nbsp;</span>
-                    <span class="author-block"><sup>2</sup>Mechanical Engineering, University of South Florida</span>
+                    <span class="author-block"><sup>1</sup>University of South Florida &nbsp;&nbsp;</span>
+                    <span class="author-block"><sup>2</sup>University of Maryland</span>
                 </div>
 
                 <!-- Link buttons -->
@@ -125,23 +128,17 @@
                     <div class="publication-links">
 
                     <span class="link-block" style="margin: 0.25rem;">
-                        <a href="https://arxiv.org/abs/2603.05623" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                        <a href="https://arxiv.org/abs/2606.17433" target="_blank" class="external-link button is-normal is-rounded is-dark">
                         <span class="icon"><i class="ai ai-arxiv"></i></span>
                         <span>arXiv</span>
                         </a>
                     </span>
 
-                    <span class="link-block" style="margin: 0.25rem;">
-                        <a href="https://youtu.be/-4BJK7Oi_yM" target="_blank" class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon"><i class="fab fa-youtube"></i></span>
-                        <span>Video</span>
-                        </a>
-                    </span>
 
                     <span class="link-block" style="margin: 0.25rem;">
-                        <a href="#" class="external-link button is-normal is-rounded is-dark">
+                        <a href="https://huggingface.co/datasets/SahasraK/LADBench" class="external-link button is-normal is-rounded is-dark">
                         <span class="icon"><i class="fab fa-github"></i></span>
-                        <span>Code (Coming Soon)</span>
+                        <span>Code & Data</span>
                         </a>
                     </span>
 
@@ -158,13 +155,16 @@
         <section class="hero teaser">
         <div class="container is-max-desktop">
             <div class="hero-body" style="padding-top: 1rem; padding-bottom: 2rem;">
-            <img src="assets/img/pfs.png" alt="PFS architecture overview">
+            <img src="assets\benchbanner.png" alt="LAD-Bench Benchmark Overview">
             <h2 class="subtitle has-text-centered" style="margin-top: 1.2rem; font-size: 0.95rem; color: #555;">
-                Overall PFS architecture. A lightweight Feature Stabilizer is placed between the fused BEV feature map and the frozen
-                detection head. It applies (1) channel shift normalization, (2) spatial reliability suppression,
-                and (3) degradation-aware gated residual correction with semantic and geometric experts to produce a stabilized
-                feature map, which is then fed to the unchanged detection head.
-                All stabilizer blocks are identity-initialized for safe deployment.
+                LAD-Bench evaluation framework and Tiered Prompting Protocol. (A) Left: Synthetic image samples containing 
+                various logical anomalies. (B) Middle: Tiered testing and scoring process. Images initially enter Level 1 
+                (Zero-Shot) for unprompted testing; if the model fails to detect the anomaly, it sequentially advances to the
+                 next level to receive additional clues—specifically, Level 2 (explicitly prompting that an anomaly exists in the 
+                 image) and Level 3 (providing a specific category hint). The score awarded for a successful detection decreases 
+                 as the level of guidance increases (100\% - 66\% - 33\%). (C) Right: Ground truth logical errors in the images 
+                 (highlighted by red boxes), along with the automated evaluation of the model's final output (diagnosis and 
+                 reasoning process).
             </h2>
             </div>
         </div>
@@ -177,8 +177,18 @@
             <div class="column is-four-fifths">
                 <h2 class="title is-3">Abstract</h2>
                 <div class="content has-text-justified">
-                <p>Camera-LiDAR fusion is widely used in autonomous driving to enable accurate 3D object detection. However, bird's-eye view (BEV) fusion detectors can degrade significantly under domain shift and sensor failures, limiting reliability in real-world deployment. Existing robustness approaches often require modifying the fusion architecture or retraining specialized models, making them difficult to integrate into already deployed systems.</p>
-                <p>We propose a Post Fusion Stabilizer (PFS), a lightweight module that operates on intermediate BEV representations of existing detectors and produces a refined feature map for the original detection head. The design stabilizes feature statistics under domain shift, suppresses spatial regions affected by sensor degradation, and adaptively restores weakened cues through residual correction. Designed as a near-identity transformation, PFS preserves performance while improving robustness under diverse camera and LiDAR corruptions. Evaluations on the nuScenes benchmark demonstrate that PFS achieves state-of-the-art results in several failure modes, notably improving camera dropout robustness by +1.2% and low-light performance by +4.4% mAP while maintaining a lightweight footprint of only 3.3M parameters.</p>
+                    <p>Large Vision Language Models (VLMs) excel at visual question answering and semantic grounding,
+                         but their capacity for autonomous logical reasoning remains underexplored. Existing anomaly benchmarks 
+                         emphasize visual errors or direct prompting rather than the physical and social common sense needed 
+                         for open-world deployment. To address this, we introduce LAD-bench, a benchmark of more than 1,000
+                          curated synthetic images with logical anomalies across four domains: Residential, Urban, Collaborative, 
+                          and Nature. We further propose a Tiered Prompting Protocol based on progressive disclosure, which 
+                          measures how much explicit assistance a model needs to localize and reason about a logical fault. 
+                          Evaluating leading foundation models reveals substantial weaknesses: even the best achieves only 
+                          70.11% overall accuracy, showing that implicit logical fault detection remains unsolved. Crucially, 
+                          models often fail to identify anomalies even after receiving explicit hints in deeper tiers. By 
+                          surfacing these limitations in sequential multimodal reasoning, LAD-Bench offers a rigorous framework 
+                          for advancing the safety, reliability, and cognitive alignment of autonomous visual systems. </p>
                 </div>
             </div>
             </div>
@@ -202,20 +212,6 @@
         </div>
         </section>
 
-        <!-- ══ VIDEO ══ -->
-        <section class="section">
-        <div class="container is-max-desktop">
-            <div class="columns is-centered has-text-centered">
-            <div class="column is-four-fifths">
-                <h2 class="title is-3">Video</h2>
-                <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:8px; box-shadow: 0 4px 20px rgba(0,0,0,0.12);">
-                <iframe src="https://www.youtube.com/embed/-4BJK7Oi_yM" style="position:absolute; top:0; left:0; width:100%; height:100%;" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="">
-                </iframe>
-                </div>
-            </div>
-            </div>
-        </div>
-        </section>
 
         <!-- ══ RESULTS ══ -->
         <section class="section" style="background: #fafafa;">
@@ -254,7 +250,7 @@
                 <div class="column is-8">
                     <div class="content has-text-centered">
                     <p>
-                        
+                        @ 2025 Sahasra Kondapalli | All rights reserved
                     </p>
                     </div>
                 </div>
