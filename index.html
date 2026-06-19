@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Post Fusion Bird's Eye View Feature Stabilization for Robust Multimodal 3D Detection.">
+        <meta name="keywords" content="PFS, BEV, 3D Detection, Multimodal, LiDAR, Camera">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>PFS: Post Fusion BEV Feature Stabilization for Robust Multimodal 3D Detection</title>
+
+        <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+        <style>
+            body { font-family: 'Noto Sans', sans-serif; }
+            .publication-title { font-family: 'Google Sans', sans-serif; }
+            .publication-authors { font-family: 'Google Sans', sans-serif; }
+
+            .navbar { border-bottom: 1px solid #e8e8e8; }
+
+            /* Hero */
+            .hero { background: #fff; }
+            .hero .title { font-size: 2rem; line-height: 1.3; }
+
+            /* Author links */
+            .author-block a { color: #4a4a4a; border-bottom: 1px dotted #888; }
+            .author-block a:hover { color: #363636; border-bottom-style: solid; }
+
+            /* Link buttons */
+            .publication-links .button {
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            }
+
+            /* Teaser */
+            .teaser .hero-body { padding-top: 0; }
+            .teaser img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+            display: block;
+            }
+
+            /* Section titles */
+            .title.is-3 {
+            font-family: 'Google Sans', sans-serif;
+            border-bottom: 2px solid #e8e8e8;
+            padding-bottom: 0.4rem;
+            margin-bottom: 1.2rem !important;
+            }
+
+            /* BibTeX */
+            pre { background: #f5f5f5; border-radius: 6px; padding: 1.2rem; font-size: 0.85rem; overflow-x: auto; }
+
+            /* Footer */
+            footer.footer { background: #fafafa; padding: 2rem; }
+            footer a { color: #3273dc; }
+
+            /* Placeholder box — only used when there's no real content yet */
+            .placeholder-box {
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            padding: 3rem 2rem;
+            text-align: center;
+            color: #aaa;
+            font-size: 0.95rem;
+            background: #fafafa;
+            }
+        </style>
+    </head>
+
+    <body>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- ══ HERO ══ -->
+        <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+
+                <p style="margin-bottom: 0.75rem;">
+                    <span style="display:inline-block; background:#f0f0f0; color:#555; font-size:0.85rem; font-weight:600; padding:0.25em 0.9em; border-radius:20px; letter-spacing:0.04em;">IROS 2026</span>
+                </p>
+                <h1 class="title is-2 publication-title">
+                    Post Fusion Bird's Eye View Feature Stabilization for Robust Multimodal 3D Detection
+                </h1>
+
+                <!-- Authors -->
+                <div class="is-size-5 publication-authors" style="margin-top: 1rem;">
+                    <span class="author-block">
+                    <a href="https://dongtrung28.github.io/">Trung Tien Dong</a><sup>1</sup>,
+                    </span>
+                    <span class="author-block">
+                    Dev Thakkar<sup>2</sup>,
+                    </span>
+                    <span class="author-block">
+                    <a href="https://scholar.google.com/citations?user=bwI_W-QAAAAJ&amp;hl=en">Arman Sargolzaei</a><sup>2</sup>,
+                    </span>
+                    <span class="author-block">
+                    <a href="https://xiaominlin.github.io/">Xiaomin Lin</a><sup>1</sup>
+                    </span>
+                </div>
+
+                <!-- Affiliations -->
+                <div class="is-size-6 publication-authors" style="margin-top: 0.5rem; color: #555;">
+                    <span class="author-block"><sup>1</sup>Electrical &amp; Computer Engineering, University of South Florida &nbsp;&nbsp;</span>
+                    <span class="author-block"><sup>2</sup>Mechanical Engineering, University of South Florida</span>
+                </div>
+
+                <!-- Link buttons -->
+                <div class="column has-text-centered" style="margin-top: 1.5rem;">
+                    <div class="publication-links">
+
+                    <span class="link-block" style="margin: 0.25rem;">
+                        <a href="https://arxiv.org/abs/2603.05623" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon"><i class="ai ai-arxiv"></i></span>
+                        <span>arXiv</span>
+                        </a>
+                    </span>
+
+                    <span class="link-block" style="margin: 0.25rem;">
+                        <a href="https://youtu.be/-4BJK7Oi_yM" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon"><i class="fab fa-youtube"></i></span>
+                        <span>Video</span>
+                        </a>
+                    </span>
+
+                    <span class="link-block" style="margin: 0.25rem;">
+                        <a href="#" class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon"><i class="fab fa-github"></i></span>
+                        <span>Code (Coming Soon)</span>
+                        </a>
+                    </span>
+
+                    </div>
+                </div>
+
+                </div>
+            </div>
+            </div>
+        </div>
+        </section>
+
+        <!-- ══ TEASER ══ -->
+        <section class="hero teaser">
+        <div class="container is-max-desktop">
+            <div class="hero-body" style="padding-top: 1rem; padding-bottom: 2rem;">
+            <img src="assets/img/pfs.png" alt="PFS architecture overview">
+            <h2 class="subtitle has-text-centered" style="margin-top: 1.2rem; font-size: 0.95rem; color: #555;">
+                Overall PFS architecture. A lightweight Feature Stabilizer is placed between the fused BEV feature map and the frozen
+                detection head. It applies (1) channel shift normalization, (2) spatial reliability suppression,
+                and (3) degradation-aware gated residual correction with semantic and geometric experts to produce a stabilized
+                feature map, which is then fed to the unchanged detection head.
+                All stabilizer blocks are identity-initialized for safe deployment.
+            </h2>
+            </div>
+        </div>
+        </section>
+
+        <!-- ══ ABSTRACT ══ -->
+        <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Abstract</h2>
+                <div class="content has-text-justified">
+                <p>Camera-LiDAR fusion is widely used in autonomous driving to enable accurate 3D object detection. However, bird's-eye view (BEV) fusion detectors can degrade significantly under domain shift and sensor failures, limiting reliability in real-world deployment. Existing robustness approaches often require modifying the fusion architecture or retraining specialized models, making them difficult to integrate into already deployed systems.</p>
+                <p>We propose a Post Fusion Stabilizer (PFS), a lightweight module that operates on intermediate BEV representations of existing detectors and produces a refined feature map for the original detection head. The design stabilizes feature statistics under domain shift, suppresses spatial regions affected by sensor degradation, and adaptively restores weakened cues through residual correction. Designed as a near-identity transformation, PFS preserves performance while improving robustness under diverse camera and LiDAR corruptions. Evaluations on the nuScenes benchmark demonstrate that PFS achieves state-of-the-art results in several failure modes, notably improving camera dropout robustness by +1.2% and low-light performance by +4.4% mAP while maintaining a lightweight footprint of only 3.3M parameters.</p>
+                </div>
+            </div>
+            </div>
+        </div>
+        </section>
+
+        <!-- ══ METHODOLOGY ══ -->
+        <section class="section" style="background: #fafafa;">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+            <div class="column is-full-width">
+                <h2 class="title is-3">Methodology</h2>
+                <div class="content has-text-justified">
+                <p>Method description coming soon.</p>
+                </div>
+                <div class="placeholder-box" style="margin-top: 1.5rem; min-height: 220px; display:flex; align-items:center; justify-content:center;">
+                Method overview figure
+                </div>
+            </div>
+            </div>
+        </div>
+        </section>
+
+        <!-- ══ VIDEO ══ -->
+        <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Video</h2>
+                <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:8px; box-shadow: 0 4px 20px rgba(0,0,0,0.12);">
+                <iframe src="https://www.youtube.com/embed/-4BJK7Oi_yM" style="position:absolute; top:0; left:0; width:100%; height:100%;" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="">
+                </iframe>
+                </div>
+            </div>
+            </div>
+        </div>
+        </section>
+
+        <!-- ══ RESULTS ══ -->
+        <section class="section" style="background: #fafafa;">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+            <div class="column is-full-width">
+                <h2 class="title is-3">Results</h2>
+                <div class="content has-text-justified">
+                <p>Results coming soon.</p>
+                </div>
+            </div>
+            </div>
+        </div>
+        </section>
+
+        <!-- ══ BIBTEX ══ -->
+        <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title is-3">BibTeX</h2>
+            <pre><code>@misc{kondapalli2026ladbenchbenchmarklogicalfault,
+                title={LADBench: A Benchmark for Logical Fault Detection in Images}, 
+                author={Sahasra Kondapalli and Lara Radovanovic and Aadi Palnitkar and Mingyang Mao and Xiaomin Lin},
+                year={2026},
+                eprint={2606.17433},
+                archivePrefix={arXiv},
+                primaryClass={cs.CV},
+                url={https://arxiv.org/abs/2606.17433}, 
+            }</code></pre>
+        </div>
+        </section>
+
+        <!-- ══ FOOTER ══ -->
+        <footer class="footer">
+            <div class="container">
+                <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="content has-text-centered">
+                    <p>
+                        
+                    </p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </footer>
+
+
+
+        <div id="hl-aria-live-message-container" aria-live="polite" class="visually-hidden"></div><div id="hl-aria-live-alert-container" role="alert" aria-live="assertive" class="visually-hidden"></div>
+    </body>
+</html>
